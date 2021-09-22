@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 
-const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const ANIMALS = ["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
 
 const SearchParams = () => {
   const [animal, setAnimal] = useState("");
@@ -20,7 +20,6 @@ const SearchParams = () => {
       `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
     );
     const json = await res.json();
-    console.log(json.pets);
     setPets(json.pets);
   }
 
