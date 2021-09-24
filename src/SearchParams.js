@@ -3,11 +3,13 @@ import useBreedList from "./useBreedList";
 import Results from "./Results";
 
 const ANIMALS = ["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
+const AGES = ["baby", "teenager", "adult", "senior"];
 
 const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [location, setLocation] = useState("");
   const [breed, setBreed] = useState("");
+  const [age, setAge] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
 
@@ -69,6 +71,23 @@ const SearchParams = () => {
             {breeds.map((breed) => (
               <option value={breed} key={breed}>
                 {breed}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label htmlFor="age">
+          Age
+          <select
+            disabled={!AGES.length}
+            id="age"
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            onBlur={(e) => setAge(e.target.value)}
+          >
+            <option />
+            {AGES.map((age) => (
+              <option value={age} key={age}>
+                {age}
               </option>
             ))}
           </select>
