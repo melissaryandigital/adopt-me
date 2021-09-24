@@ -3,8 +3,8 @@ import ThemeContext from "./ThemeContext";
 import useBreedList from "./useBreedList";
 import Results from "./Results";
 
-const ANIMALS = ["Bird", "Cat", "Dog", "Rabbit", "Reptile"];
-const AGES = ["baby", "teenager", "adult", "senior"];
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+const THEMES = ["darkblue", "chartreuse", "peru", "mediumorchid"];
 
 const SearchParams = () => {
   const [animal, setAnimal] = useState("");
@@ -13,7 +13,7 @@ const SearchParams = () => {
   const [age, setAge] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   useEffect(() => {
     requestPets();
@@ -77,19 +77,17 @@ const SearchParams = () => {
             ))}
           </select>
         </label>
-        <label htmlFor="age">
-          Age
+        <label htmlFor="theme">
+          Theme
           <select
-            disabled={!AGES.length}
-            id="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            onBlur={(e) => setAge(e.target.value)}
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            onBlur={(e) => setTheme(e.target.value)}
           >
             <option />
-            {AGES.map((age) => (
-              <option value={age} key={age}>
-                {age}
+            {THEMES.map((theme) => (
+              <option value={theme} key={theme}>
+                {theme}
               </option>
             ))}
           </select>
