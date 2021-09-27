@@ -10,7 +10,6 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [location, setLocation] = useState("");
   const [breed, setBreed] = useState("");
-  const [age, setAge] = useState("");
   const [pets, setPets] = useState([]);
   const [breeds] = useBreedList(animal);
   const [theme, setTheme] = useContext(ThemeContext);
